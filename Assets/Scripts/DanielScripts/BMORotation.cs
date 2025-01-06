@@ -27,7 +27,7 @@ public class BMORotation : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 aimDirection = mousePosition - rb.position;
-        float aimAngle = Mathf.Atan2(aimDirection.y,aimDirection.x) * Mathf.Rad2Deg - 90f;
+        float aimAngle = Mathf.Atan2(aimDirection.y,aimDirection.x) * Mathf.Rad2Deg - 180;
         rb.rotation = aimAngle;
     }
 }
