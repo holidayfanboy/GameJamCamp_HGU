@@ -5,10 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
-    public int life;
     private SpriteRenderer playerSpriteRenderer;
-    private Rigidbody2D rigid2D;
-    public LifeGuageMovement lguage;
     // Start is called before the first frame update
     void Start()
     {
