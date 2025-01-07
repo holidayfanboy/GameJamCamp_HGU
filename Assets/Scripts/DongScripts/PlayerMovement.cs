@@ -15,7 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public TMP_Text Bcounttext;
     public BombItemMovement BombItem;
 
-    [SerializeField] private GameObject Bomb;
+    [SerializeField] GameObject Bomb;
+    [SerializeField] GameManager gamemanagerscript;
     public GameObject GmBomb;
 
     // Start is called before the first frame update
@@ -47,10 +48,9 @@ public class PlayerMovement : MonoBehaviour
         float yMove=Input.GetAxis ("Vertical")*speed*Time.deltaTime; //y축으로 이동할양
         this.transform.Translate(new Vector3(xMove,yMove,0));  //이동
 
-        if(Input.GetKey(KeyCode.Alpha3) && BombItem.bombCount > 0){
+        if(Input.GetKeyDown(KeyCode.Alpha3) && gamemanagerscript.bombCount > 0){
             FireBomb(); 
-            BombItem.bombCount -= 1;
-            Bcounttext.text = BombItem.bombCount.ToString();
+            Bcounttext.text = gamemanagerscript.bombCount.ToString();
         }
     }
 
@@ -78,7 +78,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void FireBomb(){
-        GmBomb = (GameObject)Instantiate(Bomb, this.transform.position, this.transform.rotation) as GameObject;
-        Destroy(GmBomb, 2.0f);   
+        GmBomb = Instantiate(Bomb, this.transform.position, this.transform.rotation);
+        gamemanagerscript.bombCount -= 1;
+        Destroy(GmBomb, 1.6f);   
     }
 }

@@ -5,15 +5,13 @@ using UnityEngine.UI;
 using TMPro;
 public class BombItemMovement : MonoBehaviour
 {
-    [SerializeField] PlayerMovement player;
-    [SerializeField]  TMP_Text Bcounttext;
-    public int bombCount;
-    // Start is called before the first frame update
+    [SerializeField] GameObject gamemanager;
+    [SerializeField] GameManager gamemanagerscript;
+
     void Awake()
     {
-        bombCount = 0;
-        player = player.GetComponent<PlayerMovement>();;
-        //Bcounttext = GameObject.Find("BombCount");
+        gamemanager = GameObject.Find("GameManager");
+        gamemanagerscript = gamemanager.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -22,11 +20,12 @@ public class BombItemMovement : MonoBehaviour
         
     }
 
-    void OnTriggerEnter2D(Collider2D other){
-        if(other.tag == "Player"){ 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "Player")
+        { 
             Destroy(this.gameObject);
-            bombCount++;
-            Bcounttext.text = bombCount.ToString();
+            gamemanagerscript.bombAdded();        
         }
     }
 }
