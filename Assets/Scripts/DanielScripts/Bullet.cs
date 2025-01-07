@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour
 {
     public int bteam = 1;
 
+    private SpriteRenderer rend;
+
     private void Awake()
     {
         Destroy(gameObject, 0.5f);

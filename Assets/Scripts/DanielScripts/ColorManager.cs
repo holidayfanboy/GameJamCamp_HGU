@@ -46,7 +46,7 @@ public class ColorManager : MonoBehaviour
             {
 
                 Vector2 spawn = new Vector2(transform.position.x + j * 0.5f, transform.position.y - i*0.5f);
-                backPrefab = Instantiate(backPrefab, spawn, Quaternion.Euler(0, 0, 0));
+                Instantiate(backPrefab, spawn, Quaternion.Euler(0, 0, 0));
             }
         }
     }

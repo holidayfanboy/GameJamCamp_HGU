@@ -7,12 +7,16 @@ public class BackgroundPaint : MonoBehaviour
     [SerializeField] int team = 0;
     [SerializeField] GameObject colormanager;
     [SerializeField] ColorManager colormanagerscript;
+    [SerializeField] GameObject scoremanager;
+    [SerializeField] ScoreManager scoremanagerscript;
     private SpriteRenderer rend;
 
     void Awake()
     {
         colormanager = GameObject.Find("ColorManager");
         colormanagerscript = colormanager.GetComponent<ColorManager>();
+        scoremanager = GameObject.Find("ScoreManager");
+        scoremanagerscript = scoremanager.GetComponent<ScoreManager>();
         rend = GetComponent<SpriteRenderer>();
         rend.color = colormanagerscript.GiveColor(team);
     }
@@ -24,14 +28,17 @@ public class BackgroundPaint : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        int newteam = 0;
         if (collision.gameObject.tag == "Bullet")
         {
             Bullet bulletScript = collision.gameObject.GetComponent<Bullet>();
             if (bulletScript != null)
             {
-                team = bulletScript.bteam;
+                newteam = bulletScript.bteam;
             }
-            rend.color = colormanagerscript.GiveColor(team);
+            rend.color = colormanagerscript.GiveColor(newteam);
+            scoremanagerscript.ScoreRecord(team, newteam);
+            team = newteam;
         }
     }
 }
