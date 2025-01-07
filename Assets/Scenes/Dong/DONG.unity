@@ -4368,7 +4368,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1380015984
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6846,6 +6846,7 @@ MonoBehaviour:
   Bcounttext: {fileID: 1035064695}
   BombItem: {fileID: 266238276}
   Bomb: {fileID: 6132797839794313780, guid: 48b748cbe2a96de489739e12d8e655a6, type: 3}
+  gamemanagerscript: {fileID: 0}
   GmBomb: {fileID: 6132797839794313780, guid: 48b748cbe2a96de489739e12d8e655a6, type: 3}
 --- !u!4 &2095812505 stripped
 Transform:
@@ -7108,6 +7109,7 @@ MonoBehaviour:
   bulletscript: {fileID: 0}
   firePoint: {fileID: 542504212}
   player: {fileID: 2095812502}
+  bigorsmall: 0
 --- !u!212 &2136083641
 SpriteRenderer:
   m_ObjectHideFlags: 0
