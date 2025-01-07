@@ -6,6 +6,10 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed;
     private SpriteRenderer playerSpriteRenderer;
+    public int life;
+    private Rigidbody2D rigid2D;
+    public LifeGuageMovement lguage;
+
     // Start is called before the first frame update
     void Start()
     {
