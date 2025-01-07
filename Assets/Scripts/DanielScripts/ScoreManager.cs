@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    [SerializeField] int[] scoreboard = new int[]
+    public int[] scoreboard = new int[]
     {
-        0,
-        0,
-        0,
-        0,
-        0,
+        0, //0
+        0, //1 red
+        0, //2 blue
+        0, //3 green
+        0, //4 yellow
         0
     };
     
