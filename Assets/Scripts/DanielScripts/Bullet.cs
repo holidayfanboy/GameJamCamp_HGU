@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public int bteam = 1;
-
-    private SpriteRenderer rend;
-
+    public int bteam;
+    
     private void Awake()
     {
-        Destroy(gameObject, 0.5f);
+        Destroy(gameObject, 1f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -22,4 +20,5 @@ public class Bullet : MonoBehaviour
     {
         
     }
+
 }

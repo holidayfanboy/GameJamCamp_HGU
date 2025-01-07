@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ColorManager : MonoBehaviour
-{
+{ //안기훈 교수님
     [SerializeField] int mapx = 50;
     [SerializeField] int mapy = 50;
     [SerializeField] GameObject backPrefab;
+    [SerializeField] GameObject wallPrefab;
 
     enum Team
     {
@@ -44,9 +45,25 @@ public class ColorManager : MonoBehaviour
         {
             for (int j = 0; j < mapx; j++)
             {
-
                 Vector2 spawn = new Vector2(transform.position.x + j * 0.5f, transform.position.y - i*0.5f);
                 Instantiate(backPrefab, spawn, Quaternion.Euler(0, 0, 0));
+                if (i == 0) //위
+                {
+                    Vector2 wallspawn = new Vector2(transform.position.x + j * 0.5f + 0.25f, transform.position.y + 0.5f);
+                    Instantiate(wallPrefab, wallspawn, Quaternion.Euler(0,0,90));
+                }
+                if (j == 0) //왼
+                {
+                    Instantiate(wallPrefab, new Vector2(transform.position.x - 0.5f, transform.position.y - (i + 1) * 0.5f), Quaternion.Euler(0,0,180));
+                }
+                if (j == mapx-1) //오
+                {
+                    Instantiate(wallPrefab, new Vector2(transform.position.x + j * 0.5f + 0.25f, transform.position.y - (i + 1) * 0.5f), Quaternion.Euler(0,0,0));
+                }
+                if (i == mapy-1)//아래
+                {
+                    Instantiate(wallPrefab, new Vector2(transform.position.x + j * 0.5f + 0.25f, transform.position.y - i*0.5f - 0.5f), Quaternion.Euler(0,0,-90));
+                }
             }
         }
     }

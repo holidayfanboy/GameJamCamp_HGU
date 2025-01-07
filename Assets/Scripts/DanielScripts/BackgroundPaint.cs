@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BackgroundPaint : MonoBehaviour
 {
-    [SerializeField] int team = 0;
+    public int team = 0;
     [SerializeField] GameObject colormanager;
     [SerializeField] ColorManager colormanagerscript;
     [SerializeField] GameObject scoremanager;

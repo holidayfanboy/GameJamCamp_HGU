@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed;
     private SpriteRenderer playerSpriteRenderer;
+    public int myteam = 2;
     public int life;
     private Rigidbody2D rigid2D;
     public LifeGuageMovement lguage;
@@ -56,6 +57,22 @@ public class PlayerMovement : MonoBehaviour
         if(other.gameObject.name == "wall"){ //wall를 만나면 게이지 깍이기기
             life -= 5;
             lguage.SetGauge(0,100,life);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Background")
+        {
+            BackgroundPaint backscript = collision.gameObject.GetComponent<BackgroundPaint>();
+            if (backscript.team != myteam)
+            {
+                speed = 5;
+            }
+            else
+            {
+                speed = 10;
+            }
         }
     }
 
