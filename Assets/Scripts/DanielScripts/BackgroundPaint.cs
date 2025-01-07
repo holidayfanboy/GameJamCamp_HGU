@@ -40,6 +40,7 @@ public class BackgroundPaint : MonoBehaviour
             scoremanagerscript.ScoreRecord(team, newteam);
             team = newteam;
         }
+
         if (collision.gameObject.tag == "Enemy")
         {
             //Debug.Log("Enemy triggered");
@@ -48,6 +49,12 @@ public class BackgroundPaint : MonoBehaviour
             {
                 newteam = aiScript.bteam;
                 //Debug.Log("newteam: " + newteam);
+
+        if(collision.gameObject.tag == "Bomb"){
+            BombMovement bombScript = collision.gameObject.GetComponent<BombMovement>();
+            if (bombScript != null)
+            {
+                newteam = bombScript.bteam;
             }
             rend.color = colormanagerscript.GiveColor(newteam);
             scoremanagerscript.ScoreRecord(team, newteam);
