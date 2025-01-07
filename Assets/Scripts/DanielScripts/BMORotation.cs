@@ -28,6 +28,6 @@ public class BMORotation : MonoBehaviour
     {
         Vector2 aimDirection = mousePosition - new Vector2 (transform.position.x, transform.position.y);
         float aimAngle = Mathf.Atan2(aimDirection.y,aimDirection.x) * Mathf.Rad2Deg - 180;
-        transform.rotation = aimAngle;
+        transform.rotation = Quaternion.Euler(0, 0, aimAngle);
     }
 }

@@ -5,10 +5,16 @@ using UnityEngine;
 public class BackgroundPaint : MonoBehaviour
 {
     [SerializeField] int team = 0;
+    [SerializeField] GameObject colormanager;
+    [SerializeField] ColorManager colormanagerscript;
+    private SpriteRenderer rend;
 
     void Awake()
     {
-
+        colormanager = GameObject.Find("ColorManager");
+        colormanagerscript = colormanager.GetComponent<ColorManager>();
+        rend = GetComponent<SpriteRenderer>();
+        rend.color = colormanagerscript.GiveColor(team);
     }
 
     void Update()
@@ -24,9 +30,8 @@ public class BackgroundPaint : MonoBehaviour
             if (bulletScript != null)
             {
                 team = bulletScript.bteam;
-                Debug.Log("Stage: " + team);
-                Debug.Log("Bullet Triggered");
             }
+            rend.color = colormanagerscript.GiveColor(team);
         }
     }
 }
