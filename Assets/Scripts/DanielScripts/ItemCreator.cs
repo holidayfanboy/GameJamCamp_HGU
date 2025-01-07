@@ -15,6 +15,7 @@ public class ItemCreator : MonoBehaviour
     void Awake()
     {
         RandomTarget();
+        StartCoroutine(InstantiateAfterDelay(18f)); 
     }
 
     void Update()
@@ -54,6 +55,7 @@ public class ItemCreator : MonoBehaviour
             Debug.Log("Item not decided");
             Debug.Log("Item : " + item);
         }
-        
+        RandomTarget();
+        StartCoroutine(InstantiateAfterDelay(10f)); 
     }
 }
