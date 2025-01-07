@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
+        this.transform.rotation = Quaternion.Euler(0,0,0);
          if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
         

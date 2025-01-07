@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] Bullet bulletscript;
     [SerializeField] Transform firePoint;
     [SerializeField] PlayerMovement player;
-    public float fireForce = 12f;
+    private float fireForce = 8f;
 
     void Start()
     {
