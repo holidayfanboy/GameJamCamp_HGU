@@ -9,6 +9,8 @@ public class AIMovement : MonoBehaviour
     [SerializeField] Enemy enemyscript;
     private float moveSpeed = 2.5f;
     private bool move = true;
+    public AudioSource deadClip;
+    
     void Awake()
     {
         RandomTarget();
@@ -42,6 +44,7 @@ public class AIMovement : MonoBehaviour
 
     public IEnumerator Respawn()
     {
+        deadClip.Play();
         move = false;
         yield return new WaitForSeconds(3f);
         move = true;

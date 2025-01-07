@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
+    public AudioSource endClip;
+
     public int[] scoreboard = new int[]
     {
         0, //0
@@ -36,5 +38,10 @@ public class ScoreManager : MonoBehaviour
             scoreboard[prevteam] = scoreboard[prevteam] - 1;
             scoreboard[curteam] = scoreboard[curteam] + 1;
         }
+    }
+
+    public void PlaySound()
+    {
+        endClip.Play();
     }
 }

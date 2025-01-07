@@ -34,8 +34,11 @@ public class Timer : MonoBehaviour
 
         if (min <= 0 && sec <= 0)
         {
+            scoreManager.PlaySound();
+
             minTime.text = 0.ToString();
             secTime.text = 0.ToString();
+            
             for(int i=1;i<=4;i++){
             
                 if(scoreManager.scoreboard[i]>=max){
@@ -73,7 +76,6 @@ public class Timer : MonoBehaviour
    public void OnClickRestart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
     }
 }
     

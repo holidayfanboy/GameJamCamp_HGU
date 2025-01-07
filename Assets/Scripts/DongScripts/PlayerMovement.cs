@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public LifeGuageMovement lguage;
     public TMP_Text Bcounttext;
     public BombItemMovement BombItem;
+    public AudioSource healClip;
 
     [SerializeField] GameObject Bomb;
     [SerializeField] GameManager gamemanagerscript;
@@ -79,5 +80,10 @@ public class PlayerMovement : MonoBehaviour
         GmBomb = Instantiate(Bomb, this.transform.position, this.transform.rotation);
         gamemanagerscript.bombCount -= 1;
         Destroy(GmBomb, 1.6f);   
+    }
+
+    public void HealSound()
+    {
+        healClip.Play();
     }
 }

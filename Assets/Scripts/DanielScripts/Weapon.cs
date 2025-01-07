@@ -11,6 +11,8 @@ public class Weapon : MonoBehaviour
     private float fireForce = 8f;
     public int bigorsmall = 0;
     public AudioSource bulletClip;
+    public AudioSource powerupClip;
+
 
     void Start()
     {
@@ -57,6 +59,7 @@ public class Weapon : MonoBehaviour
 
     IEnumerator BigBullet()
     { 
+        powerupClip.Play();
         bigorsmall = 1;
         yield return new WaitForSeconds(3f); 
         bigorsmall = 0;
