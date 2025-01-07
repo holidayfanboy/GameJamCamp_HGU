@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] Transform firePoint;
     [SerializeField] PlayerMovement player;
     private float fireForce = 8f;
+    public int bigorsmall = 0;
 
     void Start()
     {
@@ -23,26 +24,35 @@ public class Weapon : MonoBehaviour
 
     public void Fire()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        bulletscript = bullet.GetComponent<Bullet>();
-        bulletscript.bteam = player.myteam;
-        bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up  * fireForce, ForceMode2D.Impulse);
+        Debug.Log(bigorsmall);
+        
+        if (bigorsmall == 0)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            bulletscript = bullet.GetComponent<Bullet>();
+            bulletscript.bteam = player.myteam;
+            bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up  * fireForce, ForceMode2D.Impulse);
+        }
+        
+        if (bigorsmall == 1)
+        {
+            GameObject bigBullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+
+        
+            bigBullet.transform.localScale *= 2; 
+
+            bulletscript = bigBullet.GetComponent<Bullet>();
+            bulletscript.bteam = player.myteam;
+
+            bigBullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
+        }
+        
     }
 
-    public void RandomEffect()
-    {
-        int random = Random.Range(1,3);
-        if (random == 1) //총알 커지기
-        {
-
-        }
-        if (random == 2) //총알 분산
-        {
-
-        }
-        if (random == 3) //속도 증가
-        {
-            
-        }
+    IEnumerator BigBullet()
+    { 
+        bigorsmall = 1;
+        yield return new WaitForSeconds(5f); 
+        bigorsmall = 0;
     }
 }

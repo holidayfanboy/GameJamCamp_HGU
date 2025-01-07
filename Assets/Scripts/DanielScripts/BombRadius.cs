@@ -14,7 +14,9 @@ public class BombRadius : MonoBehaviour
     IEnumerator InstantiateAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay); 
-        Instantiate(bombradiusPrefab, this.transform.position, Quaternion.Euler(0, 0, 0));
+        var item = Instantiate(bombradiusPrefab, this.transform.position, Quaternion.Euler(0, 0, 0));
+        yield return new WaitForSeconds(0.5f); 
+        Destroy(item);
     }
 
     void Update()

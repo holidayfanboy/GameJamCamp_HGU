@@ -15,7 +15,7 @@ public class ItemCreator : MonoBehaviour
     void Awake()
     {
         RandomTarget();
-        StartCoroutine(InstantiateAfterDelay(18f)); 
+        StartCoroutine(InstantiateAfterDelay(5f)); 
     }
 
     void Update()
@@ -27,7 +27,7 @@ public class ItemCreator : MonoBehaviour
     {
         randomx = Random.Range(-8,12);
         randomy = Random.Range(-18,3);
-        item = Random.Range(1,3);
+        item = Random.Range(1,4);
     }
 
     void Movement()
@@ -40,11 +40,11 @@ public class ItemCreator : MonoBehaviour
         yield return new WaitForSeconds(delay); 
         if (item == 1)
         {
-            Instantiate(bombitemPrefab, targetPosition, Quaternion.Euler(0, 0, 0));
+            Instantiate(bombitemPrefab, targetPosition, Quaternion.Euler(-90, 0, 0));
         } 
         else if (item == 2)
         {
-            Instantiate(lifeitemPrefab, targetPosition, Quaternion.Euler(0, 0, 0));
+            Instantiate(lifeitemPrefab, targetPosition, Quaternion.Euler(0, 0, 60));
         }
         else if (item == 3)
         {
@@ -56,6 +56,6 @@ public class ItemCreator : MonoBehaviour
             Debug.Log("Item : " + item);
         }
         RandomTarget();
-        StartCoroutine(InstantiateAfterDelay(10f)); 
+        StartCoroutine(InstantiateAfterDelay(5f)); 
     }
 }

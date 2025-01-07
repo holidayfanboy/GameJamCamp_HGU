@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class BoostingItem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GameObject weapon;
+    [SerializeField] Weapon weaponscript;
+
+    void Awake()
     {
-        
+        weapon = GameObject.Find("Weapon");
+        weaponscript = weapon.GetComponent<Weapon>();
     }
 
     // Update is called once per frame
@@ -18,6 +21,7 @@ public class BoostingItem : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.tag == "Player"){ 
+
             Destroy(this.gameObject);
         }
     }

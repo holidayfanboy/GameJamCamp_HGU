@@ -10,7 +10,7 @@ public class ItemMovement : MonoBehaviour
 
     [SerializeField] LifeGuageMovement lguage;
     [SerializeField] GameObject Player;
-    [SerializeField]GameObject Lguage;
+    [SerializeField] GameObject Lguage;
     [SerializeField] ItemMovement ItemScript;
     public GameObject lifeItem;
     void Awake()
@@ -31,7 +31,7 @@ public class ItemMovement : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other){
-        if(other.tag == "Player" && player.life != 100){ 
+        if(other.tag == "Player"){ 
             player.life += 5;
             lguage.SetGauge(0,100,player.life);
             Destroy(this.gameObject);
