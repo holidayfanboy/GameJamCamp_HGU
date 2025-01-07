@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] PlayerMovement player;
     private float fireForce = 8f;
     public int bigorsmall = 0;
+    public AudioSource bulletClip;
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class Weapon : MonoBehaviour
 
         if (bigorsmall == 0)
         {
+            bulletClip.Play();
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             bulletscript = bullet.GetComponent<Bullet>();
             bulletscript.bteam = player.myteam;
@@ -35,6 +37,7 @@ public class Weapon : MonoBehaviour
         
         if (bigorsmall == 1)
         {
+            bulletClip.Play();
             GameObject bigBullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
         

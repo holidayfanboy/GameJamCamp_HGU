@@ -5,7 +5,7 @@ using UnityEngine;
 public class BombRadius : MonoBehaviour
 {
     public GameObject bombradiusPrefab;
-
+    public AudioSource TNTClip;
     void Awake()
     {
         StartCoroutine(InstantiateAfterDelay(1.4f)); 
