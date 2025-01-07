@@ -42,12 +42,12 @@ public class BackgroundPaint : MonoBehaviour
         }
         if (collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("Enemy triggered");
+            //Debug.Log("Enemy triggered");
             AITeamData aiScript = collision.gameObject.GetComponent<AITeamData>();
             if (aiScript != null)
             {
                 newteam = aiScript.bteam;
-                Debug.Log("newteam: " + newteam);
+                //Debug.Log("newteam: " + newteam);
             }
             rend.color = colormanagerscript.GiveColor(newteam);
             scoremanagerscript.ScoreRecord(team, newteam);
