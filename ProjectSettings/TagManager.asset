@@ -6,6 +6,8 @@ TagManager:
   tags:
   - attack
   - Bullet
+  - Background
+  - Enemy
   - item
   - Bomb
   layers:

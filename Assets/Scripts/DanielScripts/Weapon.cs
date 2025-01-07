@@ -7,8 +7,8 @@ public class Weapon : MonoBehaviour
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] Bullet bulletscript;
     [SerializeField] Transform firePoint;
-    [SerializeField] int myteam = 2;
-    public float fireForce = 20f;
+    [SerializeField] PlayerMovement player;
+    private float fireForce = 8f;
 
     void Start()
     {
@@ -25,7 +25,7 @@ public class Weapon : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         bulletscript = bullet.GetComponent<Bullet>();
-        bulletscript.bteam = myteam;
+        bulletscript.bteam = player.myteam;
         bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up  * fireForce, ForceMode2D.Impulse);
         
     }

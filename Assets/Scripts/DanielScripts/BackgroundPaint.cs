@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BackgroundPaint : MonoBehaviour
 {
-    [SerializeField] int team = 0;
+    public int team = 0;
     [SerializeField] GameObject colormanager;
     [SerializeField] ColorManager colormanagerscript;
     [SerializeField] GameObject scoremanager;
@@ -40,7 +40,17 @@ public class BackgroundPaint : MonoBehaviour
             scoremanagerscript.ScoreRecord(team, newteam);
             team = newteam;
         }
-        else if(collision.gameObject.tag == "Bomb"){
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            //Debug.Log("Enemy triggered");
+            AITeamData aiScript = collision.gameObject.GetComponent<AITeamData>();
+            if (aiScript != null)
+            {
+                newteam = aiScript.bteam;
+                //Debug.Log("newteam: " + newteam);
+
+        if(collision.gameObject.tag == "Bomb"){
             BombMovement bombScript = collision.gameObject.GetComponent<BombMovement>();
             if (bombScript != null)
             {

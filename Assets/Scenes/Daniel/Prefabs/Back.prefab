@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1275272316932224837}
   m_Layer: 0
   m_Name: Back
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,3 +146,5 @@ MonoBehaviour:
   team: 0
   colormanager: {fileID: 0}
   colormanagerscript: {fileID: 0}
+  scoremanager: {fileID: 0}
+  scoremanagerscript: {fileID: 0}
