@@ -6,14 +6,20 @@ public class ItemMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     public float rotSpeed = 100f;
-    public PlayerMovement player;
+    [SerializeField] PlayerMovement player;
 
-    public LifeGuageMovement lguage;
-
+    [SerializeField] LifeGuageMovement lguage;
+    [SerializeField] GameObject Player;
+    [SerializeField]GameObject Lguage;
+    [SerializeField] ItemMovement ItemScript;
     public GameObject lifeItem;
-    void Start()
+    void Awake()
     {
-
+        Player = GameObject.Find("gun_walk_side");
+        Lguage = GameObject.Find("LifeGuage");
+        lguage = Lguage.GetComponent<LifeGuageMovement>();
+        ItemScript = lifeItem.GetComponent<ItemMovement>();
+        player = Player.GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
