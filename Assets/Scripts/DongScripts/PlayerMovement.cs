@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,6 +11,11 @@ public class PlayerMovement : MonoBehaviour
     public int life;
     private Rigidbody2D rigid2D;
     public LifeGuageMovement lguage;
+    public TMP_Text Bcounttext;
+    public BombItemMovement BombItem;
+
+    [SerializeField] private GameObject Bomb;
+    public GameObject GmBomb;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +44,12 @@ public class PlayerMovement : MonoBehaviour
         float xMove=Input.GetAxis ("Horizontal")*speed*Time.deltaTime ; //x축으로 이동할 양
         float yMove=Input.GetAxis ("Vertical")*speed*Time.deltaTime; //y축으로 이동할양
         this.transform.Translate(new Vector3(xMove,yMove,0));  //이동
+
+        if(Input.GetKey(KeyCode.Alpha3) && BombItem.bombCount > 0){
+            FireBomb(); 
+            BombItem.bombCount -= 1;
+            Bcounttext.text = BombItem.bombCount.ToString();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other){
@@ -44,5 +57,10 @@ public class PlayerMovement : MonoBehaviour
             life -= 5;
             lguage.SetGauge(0,100,life);
         }
+    }
+
+    public void FireBomb(){
+        GmBomb = (GameObject)Instantiate(Bomb, this.transform.position, this.transform.rotation) as GameObject;
+        Destroy(GmBomb, 3.0f);   
     }
 }
