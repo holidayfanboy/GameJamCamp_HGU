@@ -49,7 +49,8 @@ public class BackgroundPaint : MonoBehaviour
             {
                 newteam = aiScript.bteam;
                 //Debug.Log("newteam: " + newteam);
-
+            }
+        }
         if(collision.gameObject.tag == "Bomb"){
             BombMovement bombScript = collision.gameObject.GetComponent<BombMovement>();
             if (bombScript != null)
@@ -62,3 +63,4 @@ public class BackgroundPaint : MonoBehaviour
         }
     }
 }
+
