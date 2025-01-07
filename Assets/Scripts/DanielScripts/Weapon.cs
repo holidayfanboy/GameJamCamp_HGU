@@ -24,8 +24,7 @@ public class Weapon : MonoBehaviour
 
     public void Fire()
     {
-        Debug.Log(bigorsmall);
-        
+
         if (bigorsmall == 0)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
@@ -39,7 +38,7 @@ public class Weapon : MonoBehaviour
             GameObject bigBullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
         
-            bigBullet.transform.localScale *= 2; 
+            bigBullet.transform.localScale *= 10; 
 
             bulletscript = bigBullet.GetComponent<Bullet>();
             bulletscript.bteam = player.myteam;
@@ -48,11 +47,15 @@ public class Weapon : MonoBehaviour
         }
         
     }
+    public void Now()
+    {
+        StartCoroutine(BigBullet());
+    }
 
     IEnumerator BigBullet()
     { 
         bigorsmall = 1;
-        yield return new WaitForSeconds(5f); 
+        yield return new WaitForSeconds(3f); 
         bigorsmall = 0;
     }
 }

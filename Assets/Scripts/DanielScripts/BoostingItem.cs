@@ -21,7 +21,7 @@ public class BoostingItem : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.tag == "Player"){ 
-
+            weaponscript.Now();
             Destroy(this.gameObject);
         }
     }

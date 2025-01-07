@@ -15,7 +15,7 @@ public class ItemCreator : MonoBehaviour
     void Awake()
     {
         RandomTarget();
-        StartCoroutine(InstantiateAfterDelay(5f)); 
+        StartCoroutine(InstantiateAfterDelay(7f)); 
     }
 
     void Update()
@@ -56,6 +56,6 @@ public class ItemCreator : MonoBehaviour
             Debug.Log("Item : " + item);
         }
         RandomTarget();
-        StartCoroutine(InstantiateAfterDelay(5f)); 
+        StartCoroutine(InstantiateAfterDelay(7f)); 
     }
 }
