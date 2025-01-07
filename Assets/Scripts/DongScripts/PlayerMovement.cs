@@ -61,6 +61,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void FireBomb(){
         GmBomb = (GameObject)Instantiate(Bomb, this.transform.position, this.transform.rotation) as GameObject;
-        Destroy(GmBomb, 3.0f);   
+        Destroy(GmBomb, 2.0f);   
     }
 }

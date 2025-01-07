@@ -40,5 +40,15 @@ public class BackgroundPaint : MonoBehaviour
             scoremanagerscript.ScoreRecord(team, newteam);
             team = newteam;
         }
+        else if(collision.gameObject.tag == "Bomb"){
+            BombMovement bombScript = collision.gameObject.GetComponent<BombMovement>();
+            if (bombScript != null)
+            {
+                newteam = bombScript.bteam;
+            }
+            rend.color = colormanagerscript.GiveColor(newteam);
+            scoremanagerscript.ScoreRecord(team, newteam);
+            team = newteam;
+        }
     }
 }

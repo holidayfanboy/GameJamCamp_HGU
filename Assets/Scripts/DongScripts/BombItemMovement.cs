@@ -5,14 +5,15 @@ using UnityEngine.UI;
 using TMPro;
 public class BombItemMovement : MonoBehaviour
 {
-    public PlayerMovement player;
-
-    public TMP_Text Bcounttext;
+    [SerializeField] PlayerMovement player;
+    [SerializeField]  TMP_Text Bcounttext;
     public int bombCount;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         bombCount = 0;
+        player = player.GetComponent<PlayerMovement>();;
+        //Bcounttext = GameObject.Find("BombCount");
     }
 
     // Update is called once per frame
