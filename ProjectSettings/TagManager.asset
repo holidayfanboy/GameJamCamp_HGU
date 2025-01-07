@@ -10,6 +10,8 @@ TagManager:
   - Enemy
   - item
   - Bomb
+  - AI
+  - Wall
   layers:
   - Default
   - TransparentFX

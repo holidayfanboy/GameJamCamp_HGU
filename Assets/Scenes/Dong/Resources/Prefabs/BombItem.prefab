@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5395623731836289277}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -3.19, z: -0.000000050756285}
+  m_LocalPosition: {x: 0, y: -3.19, z: 0}
   m_LocalScale: {x: 14.380493, y: 14.380493, z: 14.380493}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -97,9 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae1a937c4e1ced40927918812fd1b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  Bcounttext: {fileID: 0}
-  bombCount: 0
+  gamemanager: {fileID: 0}
+  gamemanagerscript: {fileID: 0}
 --- !u!58 &1163058387199307039
 CircleCollider2D:
   m_ObjectHideFlags: 0

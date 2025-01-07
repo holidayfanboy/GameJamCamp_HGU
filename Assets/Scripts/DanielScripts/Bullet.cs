@@ -16,6 +16,14 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
+     void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "AI" || collision.gameObject.tag == "Wall")
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Update()
     {
         
