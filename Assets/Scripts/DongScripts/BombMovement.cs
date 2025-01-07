@@ -5,15 +5,14 @@ using UnityEngine;
 public class BombMovement : MonoBehaviour
 {   
     public int bteam = 2;
-    // Start is called before the first frame update
     void Awake()
     {
-        
+        StartCoroutine(SelfDestroy(0.5f)); 
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator SelfDestroy(float delay)
     {
-        
+        yield return new WaitForSeconds(delay); 
+        Destroy(this.gameObject);
     }
 }

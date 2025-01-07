@@ -32,7 +32,7 @@ public class ItemMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.tag == "Player"){ 
-            player.life += 5;
+            player.life = 100;
             lguage.SetGauge(0,100,player.life);
             Destroy(this.gameObject);
         }

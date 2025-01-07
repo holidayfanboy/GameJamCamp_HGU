@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] float health = 3f; 
-    [SerializeField] float maxHealth = 3f;
-    [SerializeField] AIHealthBar healthbar;
-    [SerializeField] GameObject gamemanager;
-    [SerializeField] 
+    public float health = 3f; 
+    public float maxHealth = 3f;
+    public AIHealthBar healthbar; 
     private Vector3 initialPosition;
-
+    [SerializeField] AIMovement ai;
     void Awake()
     {
         initialPosition = transform.position;
@@ -24,7 +22,7 @@ public class Enemy : MonoBehaviour
         healthbar.UpdateHealthBar(health, maxHealth);
         if (health <= 0)
         {
-            //StartCoroutine(Respawn());
+            StartCoroutine(ai.Respawn());
         }
     }
 
@@ -33,6 +31,10 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
             TakeDamage(0.2f);
+        }
+        if (collision.gameObject.tag == "Bomb")
+        {
+            TakeDamage(1f);
         }
     }
 

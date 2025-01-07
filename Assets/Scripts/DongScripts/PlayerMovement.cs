@@ -54,13 +54,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other){
-        if(other.gameObject.name == "wall"){ //wall를 만나면 게이지 깍이기기
-            life -= 5;
-            lguage.SetGauge(0,100,life);
-        }
-    }
-
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Background")
@@ -74,6 +67,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 speed = 10;
             }
+        }
+
+        if(collision.gameObject.tag == "AI"){ 
+            life -= 10;
+            lguage.SetGauge(0,100,life);
         }
     }
 

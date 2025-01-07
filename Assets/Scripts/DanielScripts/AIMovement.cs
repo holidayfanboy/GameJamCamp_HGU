@@ -6,7 +6,9 @@ public class AIMovement : MonoBehaviour
 {
     [SerializeField] float randomx;
     [SerializeField] float randomy;
+    [SerializeField] Enemy enemyscript;
     private float moveSpeed = 2.5f;
+    private bool move = true;
     void Awake()
     {
         RandomTarget();
@@ -24,14 +26,31 @@ public class AIMovement : MonoBehaviour
     }
 
     void Movement()
-{
-    Vector3 targetPosition = new Vector3(randomx, randomy, 0);
-    transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-
-    if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
     {
-        RandomTarget(); 
+        if (move == true)
+            {
+                Vector3 targetPosition = new Vector3(randomx, randomy, 0);
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            
+    
+        if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+            {
+                RandomTarget(); 
+            }
+        }
     }
-}
 
+    public IEnumerator Respawn()
+    {
+        move = false;
+        yield return new WaitForSeconds(3f);
+        move = true;
+
+        enemyscript.health = enemyscript.maxHealth;
+
+        if (enemyscript.healthbar != null)
+        {
+            enemyscript.healthbar.UpdateHealthBar(enemyscript.health, enemyscript.maxHealth);
+        }
+    }
 }
