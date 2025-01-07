@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: -5121020793032950653}
   - component: {fileID: 1063508000009240507}
   - component: {fileID: -7077039067369932757}
+  - component: {fileID: -4975323179888321568}
   m_Layer: 0
   m_Name: bomb_explosion
   m_TagString: Bomb
@@ -241,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9bfd1411a86c54e84b4ca0daf2606f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bteam: 1
+  bteam: 2
 --- !u!50 &-7077039067369932757
 Rigidbody2D:
   serializedVersion: 4
@@ -269,3 +270,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-4975323179888321568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6132797839794313780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab2e52630ef386428013bb092bd5a54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombradiusPrefab: {fileID: 8634639982947773876, guid: 0f2f88f9d013c0e47bd0e78c8d1a30ca, type: 3}

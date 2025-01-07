@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BombMovement : MonoBehaviour
 {   
-    public int bteam = 1;
+    public int bteam = 2;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         
     }
