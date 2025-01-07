@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BMORotation : MonoBehaviour
 {
-    [SerializeField] Rigidbody2D rb;
+    //[SerializeField] Rigidbody2D rb;
     [SerializeField] Weapon weapon;
 
     Vector2 mousePosition;
@@ -26,8 +26,8 @@ public class BMORotation : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 aimDirection = mousePosition - rb.position;
+        Vector2 aimDirection = mousePosition - new Vector2 (transform.position.x, transform.position.y);
         float aimAngle = Mathf.Atan2(aimDirection.y,aimDirection.x) * Mathf.Rad2Deg - 180;
-        rb.rotation = aimAngle;
+        transform.rotation = aimAngle;
     }
 }
