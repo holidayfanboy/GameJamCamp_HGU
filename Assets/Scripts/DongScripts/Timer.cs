@@ -73,8 +73,9 @@ public class Timer : MonoBehaviour
         }
    }
 
-   public void OnClickRestart()
+    public void OnClickRestart()
     {
+        Debug.Log("Restart");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

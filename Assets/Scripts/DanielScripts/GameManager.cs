@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,5 +23,11 @@ public class GameManager : MonoBehaviour
     {
         bombCount++;
         Bcounttext.text = bombCount.ToString();
+    }
+
+    public void Restart()
+    {
+        Debug.Log("Restart");
+        SceneManager.LoadScene("RealGame");
     }
 }
