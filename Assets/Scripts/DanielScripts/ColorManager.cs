@@ -17,8 +17,8 @@ public class ColorManager : MonoBehaviour
     private Color[] colorlist = new Color[]
     {
         Color.gray, 
-        Color.red,   
-        Color.blue,  
+        new Color(0.9575471f,0.319f,0.3884389f),   
+        new Color(0.03239589f,0.6663342f,0.9811321f),  
         Color.green,
         Color.yellow,
         new Color(1f, 0.5f, 0f) 

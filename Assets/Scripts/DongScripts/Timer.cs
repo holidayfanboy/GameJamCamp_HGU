@@ -11,7 +11,7 @@ public class Timer : MonoBehaviour
     public ScoreManager scoreManager;
     public GameObject EndUI;
     public TMP_Text resultwinner; // 게임 종료시 이긴 팀
-   
+    public TMP_Text resultscore; 
     float time = 30; // 제한 시간 120초
     int min, sec;
     
@@ -49,12 +49,16 @@ public class Timer : MonoBehaviour
             Time.timeScale = 0;
             if(result == 1){
                 resultwinner.text = "winner team: Red team";
+                resultscore.text = max.ToString();
             }else if(result == 2){
                 resultwinner.text = "winner team: Blue team";
+                resultscore.text = max.ToString();
             }else if(result == 3){
                 resultwinner.text = "winner team: Green team";
+                resultscore.text = max.ToString();
             }else if(result == 4){
                 resultwinner.text = "winner team: Yellow team";
+                resultscore.text = max.ToString();
             }
             EndUI.SetActive(true);
         }
