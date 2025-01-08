@@ -34,8 +34,25 @@ public class Timer : MonoBehaviour
 
         if (min <= 0 && sec <= 0)
         {
-            scoreManager.PlaySound();
+            GameOver();
+        }
+        else {
+            Time.timeScale = 1;
+            if (sec >= 60)
+            {
+                min += 1;
+                sec -= 60;
+            }
+            else
+            {
+                minTime.text = min.ToString();
+                secTime.text = sec.ToString();
+            }
+        }
+    }
 
+    public void GameOver()
+    {
             minTime.text = 0.ToString();
             secTime.text = 0.ToString();
             
@@ -62,20 +79,8 @@ public class Timer : MonoBehaviour
             }
             EndUI.SetActive(true);
         }
-        else {
-            Time.timeScale = 1;
-            if (sec >= 60)
-            {
-                min += 1;
-                sec -= 60;
-            }
-            else
-            {
-                minTime.text = min.ToString();
-                secTime.text = sec.ToString();
-            }
-        }
-   }
-}
+        
+    }
+
     
 

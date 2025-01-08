@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public TMP_Text Bcounttext;
     public BombItemMovement BombItem;
     public AudioSource healClip;
+    public Timer timemanagerscript;
 
     [SerializeField] GameObject Bomb;
     [SerializeField] GameManager gamemanagerscript;
@@ -52,6 +53,11 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha3) && gamemanagerscript.bombCount > 0){
             FireBomb(); 
             Bcounttext.text = gamemanagerscript.bombCount.ToString();
+        }
+
+        if (life <= 0)
+        {
+            timemanagerscript.GameOver();
         }
     }
 

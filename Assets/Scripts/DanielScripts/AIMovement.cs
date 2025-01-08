@@ -7,7 +7,7 @@ public class AIMovement : MonoBehaviour
     [SerializeField] float randomx;
     [SerializeField] float randomy;
     [SerializeField] Enemy enemyscript;
-    private float moveSpeed = 2.5f;
+    private float moveSpeed = 5f;
     private bool move = true;
     public AudioSource deadClip;
     
